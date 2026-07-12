@@ -1,7 +1,7 @@
-<h1 align="center">🎮 Video Game Sales Prediction Dashboard</h1>
+<h1 align="center"> Sales Prediction Dashboard</h1>
 
 <p align="center">
-A Machine Learning powered interactive dashboard built with Streamlit to analyze and predict video game sales.
+A Machine Learning powered interactive dashboard built with Streamlit to analyze and predict sales.
 </p>
 
 <hr>
