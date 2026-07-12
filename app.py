@@ -125,7 +125,25 @@ PLOTLY_LAYOUT = dict(
 # ─── PREMIUM CUSTOM CSS INJECTION ────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* ── Load Inter + Material Symbols Rounded (fixes icon text fallback) ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block');
+
+/* ── Material Symbols font-face class — MUST be defined for icons to render ── */
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+    -webkit-font-feature-settings: 'liga' !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24 !important;
+}
 
 /* Main Background and fonts */
 html, body, [class*="st-"] {
@@ -240,8 +258,107 @@ div[data-testid="stDataFrame"] {
     border-radius: 12px !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
+
+/* ══════════════════════════════════════════════════════
+   SIDEBAR TOGGLE BUTTON — always visible, proper icon
+   ══════════════════════════════════════════════════════ */
+
+/* Always show the collapse button and collapsed control */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+[data-testid="stSidebarCollapseButton"] > div,
+[data-testid="collapsedControl"] > div {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+}
+
+/* Style the buttons and set the custom sidebar SVG icon */
+[data-testid="stSidebarCollapseButton"] button,
+[data-testid="collapsedControl"] button,
+[data-testid="stSidebarCollapseButton"] [role="button"],
+[data-testid="collapsedControl"] [role="button"],
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"] {
+    background: rgba(20, 30, 55, 0.9) !important;
+    border: 1px solid rgba(79, 139, 249, 0.4) !important;
+    border-radius: 10px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    
+    /* Hide text inside the button */
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+
+    /* Custom sidebar-panel SVG icon */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F8BF9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='9' y1='3' x2='9' y2='21'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 20px 20px !important;
+}
+
+/* Prevent double icon rendering if there's a nested button/role="button" */
+[data-testid="stSidebarCollapseButton"]:has(button),
+[data-testid="collapsedControl"]:has(button),
+[data-testid="stSidebarCollapseButton"]:has([role="button"]),
+[data-testid="collapsedControl"]:has([role="button"]) {
+    background-image: none !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Hover state styling */
+[data-testid="stSidebarCollapseButton"] button:hover,
+[data-testid="collapsedControl"] button:hover,
+[data-testid="stSidebarCollapseButton"] [role="button"]:hover,
+[data-testid="collapsedControl"] [role="button"]:hover,
+[data-testid="stSidebarCollapseButton"]:hover:not(:has(button)):not(:has([role="button"])),
+[data-testid="collapsedControl"]:hover:not(:has(button)):not(:has([role="button"])) {
+    background-color: rgba(79, 139, 249, 0.2) !important;
+    border-color: rgba(79, 139, 249, 0.8) !important;
+    box-shadow: 0 0 14px rgba(79, 139, 249, 0.4) !important;
+    transform: scale(1.06) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300E5FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='9' y1='3' x2='9' y2='21'/%3E%3C/svg%3E") !important;
+}
+
+/* Hide all children/text/spans/icons inside the toggle buttons to prevent leakages */
+[data-testid="stSidebarCollapseButton"] button *,
+[data-testid="collapsedControl"] button *,
+[data-testid="stSidebarCollapseButton"] [role="button"] *,
+[data-testid="collapsedControl"] [role="button"] *,
+[data-testid="stSidebarCollapseButton"] *,
+[data-testid="collapsedControl"] * {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    color: transparent !important;
+}
 </style>
 """, unsafe_allow_html=True)
+
+
 
 
 # ═══════════════════════════════════════════════════════════════════════════
