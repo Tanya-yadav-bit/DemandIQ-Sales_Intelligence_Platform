@@ -75,24 +75,19 @@ streamlit run app.py
 <h2>📸 Screenshots</h2>
 
 <p align="center">
-  <img src="<img width="950" height="463" alt="image" src="https://github.com/user-attachments/assets/10db6cc0-f1ec-4015-96ff-26757c631a1f" />
-" width="700" height="400" style="object-fit:cover; margin-bottom:10px;" />
+  <img src="https://github.com/user-attachments/assets/10db6cc0-f1ec-4015-96ff-26757c631a1f" width="700" height="400" style="object-fit:cover; margin-bottom:10px;" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/05b74974-cc85-45fc-bd5b-41f0ed8dfbfc" width="700" height="400" style="object-fit:cover; margin-bottom:10px;" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4e849065-0054-4156-b3cf-4a65395d76ea" width="700" height="400" style="object-fit:cover; margin-bottom:10px;" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f600ff67-b69a-4e91-8619-2d8194e6caba" width="700" height="400" style="object-fit:cover; margin-bottom:10px;" />
 </p>
 
-<p align="center">
-  <img src="<img width="944" height="461" alt="image" src="https://github.com/user-attachments/assets/05b74974-cc85-45fc-bd5b-41f0ed8dfbfc" />
-" width="700" height="400" style="object-fit:cover; margin-bottom:10px;" />
-</p>
 
-<p align="center">
-  <img src="<img width="931" height="464" alt="image" src="https://github.com/user-attachments/assets/4e849065-0054-4156-b3cf-4a65395d76ea" />
-" width="700" height="400" style="object-fit:cover;" />
-</p>
-
-<p align="center">
-  <img src="<img width="940" height="451" alt="image" src="https://github.com/user-attachments/assets/f600ff67-b69a-4e91-8619-2d8194e6caba" />
-" width="700" height="400" style="object-fit:cover;" />
-</p>
 
 <hr>
 
