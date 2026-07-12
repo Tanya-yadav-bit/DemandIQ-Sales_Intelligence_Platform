@@ -8,7 +8,7 @@ A Machine Learning powered interactive dashboard built with Streamlit to analyze
 
 <h2>🚀 Live Demo</h2>
 <p>
-👉 (Add your Streamlit link here after deployment)
+👉 https://demandiq-salesintelligenceplatform.streamlit.app/
 </p>
 
 <hr>
